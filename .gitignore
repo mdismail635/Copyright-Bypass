@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+mobile_uploads/
+mobile_outputs/
+*_workspace/
+dummy_*
+test_*
+*.mp4
+!bgm_*.m4a
+video_studio_pro_backup.py
