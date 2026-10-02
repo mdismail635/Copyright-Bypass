@@ -15,8 +15,24 @@ import time
 import socket
 import shutil
 import threading
-import subprocess
-from flask import Flask, request, jsonify, send_from_directory, render_template_string
+try:
+    from flask import Flask, request, jsonify, send_from_directory, render_template_string
+except ModuleNotFoundError:
+    print("\n" + "="*55)
+    print("⚠️  Flask লাইব্রেরি পাওয়া যায়নি! স্বয়ংক্রিয়ভাবে ইনস্টল করা হচ্ছে...")
+    print("="*55)
+    try:
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "flask", "--break-system-packages"])
+    except Exception:
+        try:
+            subprocess.check_call([sys.executable, "-m", "pip", "install", "flask"])
+        except Exception as e:
+            print(f"\n❌ Flask অটো-ইন্সটল ব্যর্থ হয়েছে: {e}")
+            print("অনুগ্রহ করে Termux-এ এই কমান্ডটি রান করুন:")
+            print("👉  pip install flask --break-system-packages  👈\n")
+            sys.exit(1)
+    from flask import Flask, request, jsonify, send_from_directory, render_template_string
+    print("✅ Flask সফলভাবে ইনস্টল হয়েছে!\n")
 
 app = Flask(__name__)
 app.config['MAX_CONTENT_LENGTH'] = 50 * 1024 * 1024 * 1024  # 50 GB max upload

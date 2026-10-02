@@ -14,12 +14,12 @@ echo "[2/4] Termux প্যাকেজ আপডেট করা হচ্ছ�
 pkg update -y
 
 echo ""
-echo "[3/4] Python ও FFmpeg ইন্সটল করা হচ্ছে..."
-pkg install python ffmpeg -y
+echo "[3/4] Python, pip ও FFmpeg ইন্সটল করা হচ্ছে..."
+pkg install python python-pip ffmpeg -y
 
 echo ""
 echo "[4/4] Flask লাইব্রেরি ইন্সটল করা হচ্ছে..."
-pip install flask
+pip install flask --break-system-packages || pip install flask || python3 -m pip install flask --break-system-packages
 
 echo ""
 echo "========================================================"
