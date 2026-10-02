@@ -10,16 +10,17 @@ termux-setup-storage
 sleep 2
 
 echo ""
-echo "[2/4] Termux প্যাকেজ আপডেট করা হচ্ছে..."
-pkg update -y
+echo "[2/4] Termux সিস্টেম ও প্যাকেজসমূহ আপগ্রেড করা হচ্ছে..."
+pkg update -y && pkg upgrade -y
 
 echo ""
-echo "[3/4] Python, pip ও FFmpeg ইন্সটল করা হচ্ছে..."
-pkg install python python-pip ffmpeg -y
+echo "[3/4] Python, Clang, pip ও FFmpeg ইন্সটল করা হচ্ছে..."
+pkg install python python-pip clang ffmpeg -y
 
 echo ""
-echo "[4/4] Flask লাইব্রেরি ইন্সটল করা হচ্ছে..."
-python3 -m pip install flask --break-system-packages || (pkg install python-pip -y && python3 -m pip install flask --break-system-packages)
+echo "[4/4] Flask ও প্রয়োজনীয় লাইব্রেরি ইন্সটল করা হচ্ছে..."
+python3 -m pip install wheel --break-system-packages
+python3 -m pip install flask --break-system-packages
 
 echo ""
 echo "========================================================"
