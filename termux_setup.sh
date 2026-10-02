@@ -19,7 +19,7 @@ pkg install python python-pip ffmpeg -y
 
 echo ""
 echo "[4/4] Flask লাইব্রেরি ইন্সটল করা হচ্ছে..."
-pip install flask --break-system-packages || pip install flask || python3 -m pip install flask --break-system-packages
+python3 -m pip install flask --break-system-packages || (pkg install python-pip -y && python3 -m pip install flask --break-system-packages)
 
 echo ""
 echo "========================================================"
