@@ -34,11 +34,17 @@ cd Copyright-Bypass
 
 # ২. সেটআপ স্ক্রিপ্ট রান করুন (শুধু প্রথমবার)
  bash termux_setup.sh
-# 3.
+#.  ১. pip প্যাকেজটি Termux-এ ইনস্টল/ফিক্স করুন
+pkg install python-pip -y
+
+# ২. পাইথনের মাধ্যমে সরাসরি Flask ইনস্টল করুন
+python3 -m pip install flask --break-system-packages
+
+# ৩. গিটহাব থেকে অটো-ফিক্স আপডেট নিন
 git pull origin main
 
-# 4.
-pip install flask --break-system-packages
+# ৪. এবার অ্যাপ চালু করুন
+bash termux_start.sh
 
 
 # 5. অ্যাপ চালু করুন
