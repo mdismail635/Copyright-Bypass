@@ -33,9 +33,15 @@ git clone https://github.com/mdismail635/Copyright-Bypass.git
 cd Copyright-Bypass
 
 # ২. সেটআপ স্ক্রিপ্ট রান করুন (শুধু প্রথমবার)
-bash termux_setup.sh
+ bash termux_setup.sh
+# 3.
+git pull origin main
 
-# ৩. অ্যাপ চালু করুন
+# 4.
+pip install flask --break-system-packages
+
+
+# 5. অ্যাপ চালু করুন
 bash termux_start.sh
 ```
 
